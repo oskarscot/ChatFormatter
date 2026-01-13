@@ -1,0 +1,12 @@
+{
+  "Group": "scot.oskar",
+  "Name": "ChatFormatter",
+  "Version": "1.0.0",
+  "Description": "Manage your chat",
+  "Authors": [
+    { "Name": "oskarscot" }
+  ],
+  "Website": "https://oskar.scot",
+  "Main": "scot.oskar.chatformatter.ChatFormatter",
+  "ServerVersion": "*"
+}
