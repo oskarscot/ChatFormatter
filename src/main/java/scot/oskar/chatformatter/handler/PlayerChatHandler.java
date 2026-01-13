@@ -1,5 +1,8 @@
 package scot.oskar.chatformatter.handler;
 
+import static scot.oskar.chatformatter.MessageUtil.copy;
+import static scot.oskar.chatformatter.MessageUtil.replaceText;
+
 import com.hypixel.hytale.event.EventRegistry;
 import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.event.events.player.PlayerChatEvent;
@@ -31,11 +34,13 @@ public class PlayerChatHandler {
         .flatMap(Optional::stream)
         .findFirst()
         .ifPresent(
-            msg -> {
-              event.setFormatter((playerRef, content) -> Message.empty()
-                  .insert(msg)
-                  .param("message",  content)
-                  .param("username", playerRef.getUsername()));
+            originalMsg -> {
+              event.setFormatter((playerRef, content) -> {
+                Message msg = copy(originalMsg);
+                replaceText(msg, "{username}", playerRef.getUsername());
+                replaceText(msg, "{message}", content);
+                return msg;
+              });
             });
   }
 
