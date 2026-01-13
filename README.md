@@ -11,6 +11,8 @@ A chat formatting plugin for Hytale servers that allows customizable message for
 - **Blocked Phrases** - Filter out unwanted words from chat messages
 - **Rich Text Support** - Full support for colors, bold, italic, underline, and monospace styling
 
+![img.png](chat-formatter.png)
+
 ## Configuration
 
 The plugin configuration is stored in JSON format:
